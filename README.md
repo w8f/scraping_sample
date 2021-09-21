@@ -24,9 +24,12 @@ $ . .venv/bin/activate
 - Webサイトアクセス
 - Webサイトログイン
 
-
-## ライブラリインストール
-
+### 各ライブラリ インストール
+```shell:title
+$ pip install selenium
+$ pip install numpy
+$ pip install pandas
+```
 ### selenium インストール
 ```shell:title
 $ pip install selenium
@@ -47,9 +50,19 @@ from selenium.webdriver.chrome.options import Options
 options = Options()
 options.add_argument('--headless')
 
+# こちらでもOK
+options.set_headless(True)
+
 browser = webdriver.Chrome(options=options)
 ```
 
+### CSV 出力
+```py:main.py
+import pandas as pd
+df = pd.DataFrame()
+df['hoge'] = names
+df.to_csv('hoge.csv')
+```
 
 ### Link
 
